@@ -1,331 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>simplePagination.js - A simple jQuery pagination plugin and 3 CSS themes.</title>
-	<link href='http://fonts.googleapis.com/css?family=Allan:700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="stylesheet" type="text/css" href="simplePagination.css" />
-	<link rel="stylesheet" type="text/css" href="hl.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Simplepagination.js</title>
+  <meta name="description" content="A simple jQuery pagination plugin.">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
 </head>
+
 <body>
 
-<a href="https://github.com/flaviusmatis/simplePagination.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
-<div class="content">
-
-	<p class="top-links">Check out my <a href="http://flaviusmatis.github.com">GitHub page</a> for other plugins.</p>
-
-	<h1>
-		<ul>
-			<li><a href="https://github.com/flaviusmatis/simplePagination.js">Project page</a></li>
-			<li><a href="https://github.com/flaviusmatis/simplePagination.js/issues">Issues</a></li>
-		</ul>
-		<strong>simplePagination.js</strong>
-	</h1>
-
-	<p class="spacer heading">A simple jQuery pagination plugin, 3 CSS themes and Bootstrap support.</p>
-
-	<h2>CSS Themes</h2>
-
-	<p class="spacer">"light-theme"</p>
-
-	<div class="pagination-holder clearfix">
-			<div id="light-pagination" class="pagination"></div>
-	</div>
-
-	<p class="spacer">"dark-theme"</p>
-
-	<div class="pagination-holder black clearfix">
-			<ul id="dark-pagination" class="pagination"></ul>
-	</div>
-
-	<p class="spacer">"compact-theme"</p>
-
-	<div class="pagination-holder clearfix">
-			<div id="compact-pagination"></div>
-	</div>
-
-	<h2>Download</h2>
-
-	<p class="spacer">Get the zip containing the plugin and the CSS themes <a href="https://github.com/flaviusmatis/simplePagination.js/zipball/master">here</a>.</p>
-
-	<h2>How To Use</h2>
-
-	<p class="spacer"><strong>Step 1:</strong> together with JQuery, include jquery.simplePagination.js in your page:</p>
-
-	<div class="block">
-
-<pre name="code" class="html">&lt;script type="text/javascript" src="path_to/jquery.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="path_to/jquery.simplePagination.js"&gt;&lt;/script&gt;</pre>
-
-	</div>
-
-	<p class="spacer">JQuery 1.7.2 or later is recommended. Older versions might work as well, but they are not tested.</p>
-
-	<p class="spacer"><strong>Step 2:</strong> OPTIONAL - include the CSS file with the 3 default themes</p>
-
-	<div class="block">
-
-<pre name="code" class="html">&lt;link type="text/css" rel="stylesheet" href="path_to/simplePagination.css"/&gt;</pre>
-
-	</div>
-
-	<p class="spacer">If you skip this step, you will need to define your own styles or use <a href="http://twitter.github.io/bootstrap/" target="_blank">Bootstrap</a>.</p>
-
-	<p class="spacer"><strong>Step 3:</strong> call the function on your pagination placeholder:</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination({
-        items: 100,
-        itemsOnPage: 10,
-        cssStyle: 'light-theme'
-    });
-});</pre>
-			
-	</div>
-
-	<p class="spacer">If necessary, you can specify the number of pages directly, via "pages" parameter, instead of "items" and "itemsOnPage" which are used by the plugin to automatically calculate the number of pages.</p>
-
-	<h2>Available options</h2>
-
-	<table>
-		<tbody>
-			<tr>
-				<td><strong>items</strong></td>
-				<td>Integer</td>
-				<td>Default: 1</td>
-				<td>Total number of items that will be used to calculate the pages.</td>
-			</tr>
-			<tr>
-				<td><strong>itemsOnPage</strong></td>
-				<td>Integer</td>
-				<td>Default: 1</td>
-				<td>Number of items displayed on each page.</td>
-			</tr>
-			<tr>
-				<td><strong>pages</strong></td>
-				<td>Integer</td>
-				<td>Optional</td>
-				<td>If specified, <strong>items</strong> and <strong>itemsOnPage</strong> will not be used to calculate the number of pages.</td>
-			</tr>
-			<tr>
-				<td><strong>displayedPages</strong></td>
-				<td>Integer</td>
-				<td>Default: 5</td>
-				<td>How many page numbers should be visible while navigating.<br/><strong>Minimum allowed: 3</strong> (previous, current & next)</td>
-			</tr>
-			<tr>
-				<td><strong>edges</strong></td>
-				<td>Integer</td>
-				<td>Default: 2</td>
-				<td>How many page numbers are visible at the beginning/ending of the pagination.</td>
-			</tr>
-			<tr>
-				<td><strong>currentPage</strong></td>
-				<td>Integer</td>
-				<td>Default: 1</td>
-				<td>Which page will be selected immediately after init.</td>
-			</tr>
-			<tr>
-				<td><strong>hrefTextPrefix</strong></td>
-				<td>String</td>
-				<td>Default: "#page-"</td>
-				<td>A string used to build the href attribute, added before the page number.</td>
-			</tr>
-			<tr>
-				<td><strong>hrefTextSuffix</strong></td>
-				<td>String</td>
-				<td>Default: empty string</td>
-				<td>Another string used to build the href attribute, added after the page number.</td>
-			</tr>
-			<tr>
-				<td><strong>prevText</strong></td>
-				<td>String</td>
-				<td>Default: "Prev"</td>
-				<td>Text to be display on the previous button.</td>
-			</tr>
-			<tr>
-				<td><strong>nextText</strong></td>
-				<td>String</td>
-				<td>Default: "Next"</td>
-				<td>Text to be display on the next button.</td>
-			</tr>
-			<tr>
-				<td><strong>labelMap</strong></td>
-				<td>Array</td>
-				<td>Default: empty array</td>
-				<td>A collection of labels that will be used to render the pagination items, replacing the numbers.</td>
-			</tr>
-			<tr>
-				<td><strong>ellipsePageSet</strong></td>
-				<td>Boolean</td>
-				<td>Default: true</td>
-				<td>When this option is true, clicking on the ellipse will replace the ellipse with a number type input in which you can manually set the resulting page.</td>
-			</tr>
-			<tr>
-				<td><strong>cssStyle</strong></td>
-				<td>String</td>
-				<td>Default: "light-theme"</td>
-				<td>The class of the CSS theme.</td>
-			</tr>
-			<tr>
-				<td><strong>selectOnClick</strong></td>
-				<td>Boolean</td>
-				<td>Default: true</td>
-				<td>Set to false if you don't want to select the page immediately after click.</td>
-			</tr>
-			<tr>
-				<td><strong>onPageClick</strong>(pageNumber, event)</td>
-				<td>Function</td>
-				<td>Optional</td>
-				<td>Function to call when a page is clicked.<br/>Page number and event are optional parameters.</td>
-			</tr>
-			<tr>
-				<td><strong>onInit</strong></td>
-				<td>Function</td>
-				<td>Optional</td>
-				<td>Function to call when the pagination is initialized.</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<h2>Available methods</h2>
-
-	<p><strong>selectPage</strong> - Select a page based on page number.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('selectPage', pageNumber);
-});</pre>
-
-	</div>
-
-	<p><strong>prevPage</strong> - Selects the previous page.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('prevPage');
-});</pre>
-
-	</div>
-
-	<p><strong>nextPage</strong> - Select the next page.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('nextPage');
-});</pre>
-
-	</div>
-
-	<p><strong>getPagesCount</strong> - Returns the total number of pages.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('getPagesCount');
-});</pre>
-
-	</div>
-
-	<p><strong>getCurrentPage</strong> - Returns the current page number.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('getCurrentPage');
-});</pre>
-
-	</div>
-
-	<p><strong>disable</strong> - Disables pagination functionality.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('disable');
-});</pre>
-
-	</div>
-
-	<p><strong>enable</strong> - Enables the pagination after it was previously disabled.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('enable');
-});</pre>
-
-	</div>
-
-	<p><strong>destroy</strong> - Visually destroys the pagination, any existing settings are kept.</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('destroy');
-});</pre>
-
-	</div>
-
-	<p><strong>redraw</strong> - The pagination is drawn again using the existing settings. (useful after you have destroyed a pagination for example)</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('redraw');
-});</pre>
-
-	</div>
-
-	<p><strong>updateItems</strong> - allows to dynamically change how many items are rendered by the pagination</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('updateItems', 100);
-});</pre>
-
-	</div>
-
-	<p><strong>updateItemsOnPage</strong> - allows to dynamically change how many items are rendered on each page</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('updateItemsOnPage', 20);
-});</pre>
-
-	</div>
-
-	<p><strong>drawPage</strong> - takes a page number as a parameter and it sets the "currentPage" value to the given page number and draws the pagination</p>
-
-	<div class="block">
-
-<pre name="code" class="js">$(function() {
-    $(selector).pagination('drawPage', 5);
-});</pre>
-
-	</div>
-
-	<h2>Support & Feedback</h2>
-
-	<p>For issues or suggestions please see <a href="https://github.com/flaviusmatis/simplePagination.js">simplePagination.js on Github</a>, or tweet <a href="http://twitter.com/#!/flaviusmatis">@flaviusmatis</a>.</p>
-
-	<p class="spacer">Thanks for your support!</p>
-
-</div>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="hl-all.js"></script>
-<script type="text/javascript" src="jquery.simplePagination.js"></script>
-<script type="text/javascript" src="script.js"></script>
-
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Simplepagination.js</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A simple jQuery pagination plugin.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/alanfraneo/simplePagination.js/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/alanfraneo/simplePagination.js/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/alanfraneo/simplePagination.js" class="code">View Simplepagination.js on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <p>Fork of <a href="https://github.com/flaviusmatis/simplePagination.js">https://github.com/flaviusmatis/simplePagination.js</a></p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/alanfraneo" class="avatar"><img src="https://avatars1.githubusercontent.com/u/11519309?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/alanfraneo">alanfraneo</a> maintains <a href="https://github.com/alanfraneo/simplePagination.js">Simplepagination.js</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/alanfraneo/simplePagination.js/tarball/master" class="tar">tar</a><a href="https://github.com/alanfraneo/simplePagination.js/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
 </body>
 </html>
